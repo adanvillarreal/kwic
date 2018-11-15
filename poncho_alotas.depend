@@ -1,0 +1,35 @@
+# depslib dependency file v1.0
+1542240839 source:/home/avillarreal/Documents/7oSemestre/blender/poncho_alotas/main.cpp
+	<iostream>
+	<string>
+	<list>
+	"string_shifter.h"
+	"input_reader.h"
+
+1542241041 /home/avillarreal/Documents/7oSemestre/blender/poncho_alotas/string_shifter.h
+	<string>
+	<list>
+
+1542240592 source:/home/avillarreal/Documents/7oSemestre/blender/poncho_alotas/string_shifter.cpp
+	<string>
+	<list>
+	<iostream>
+	<string>
+	<sstream>
+	<iterator>
+	<algorithm>
+	"string_shifter.h"
+
+1542240059 /home/avillarreal/Documents/7oSemestre/blender/poncho_alotas/input_reader.h
+	<stdio.h>
+	<string>
+	<list>
+
+1542240080 source:/home/avillarreal/Documents/7oSemestre/blender/poncho_alotas/input_reader.cpp
+	"input_reader.h"
+	<iostream>
+	<stdio.h>
+	<string>
+	<list>
+	<fstream>
+
