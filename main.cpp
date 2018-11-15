@@ -6,17 +6,13 @@
 using namespace std;
 
 int main() {
-    string oracion;
-
-    cout << "Escribe tu oracion:" << endl;
-    cout << "Escribe exit para terminar:" << endl;
-
     inputReader inputs;
+
+    cout << "\nOraciones." << endl;
     inputs.readSentences();
     list<string> oraciones = inputs.getListOfStrings();
 
-    cout << "Escribe stop_words:" << endl;
-    cout << "Escribe exit para terminar:" << endl;
+    cout << "\nStop words." << endl;
     inputs.readSentences();
     list<string> stop_words = inputs.getListOfStrings();
 
@@ -25,6 +21,7 @@ int main() {
         cout << "Escribe 0 para ascendente, 1 para descendente\n";
         cin >> ordering;
     }
+
     StringShifter shifter(oraciones, stop_words, ordering);
     shifter.shift();
     shifter.print();
