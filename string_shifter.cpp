@@ -6,11 +6,11 @@
 #include <iterator>
 #include <algorithm>
 #include "string_shifter.h"
+#include "filter.h"
 using namespace std;
 
-StringShifter::StringShifter(list<string> sentences, list<string> stop_words, int ordering) {
+StringShifter::StringShifter(list<string> sentences, int ordering) {
     sentences_ = sentences;
-    stop_words_ = stop_words;
     ordering_ = ordering;
 }
 
@@ -27,12 +27,6 @@ void StringShifter::shift() {
   }
 }
 
-void StringShifter::filter_words(list<string>& words) {
-    for(string stop_word : stop_words_) {
-        words.remove(stop_word);
-    }
-}
-
 list<string> StringShifter::split(string sentence) {
   istringstream ss(sentence);
   list<string> words;
@@ -40,7 +34,7 @@ list<string> StringShifter::split(string sentence) {
   while(ss >> word) {
     words.push_back(word);
   }
-  filter_words(words);
+
   return words;
 }
 
@@ -50,13 +44,11 @@ string StringShifter::join(list<string> words) {
   return ss.str();
 }
 
-void StringShifter::print() {
+list<string> StringShifter::shifted_sentences() {
   if(ordering_ == 0) {
     shifted_sentences_.sort(ascending);
   } else if(ordering_ == 1) {
     shifted_sentences_.sort(descending);
   }
-  for(string sentence : shifted_sentences_) {
-    cout << sentence << '\n';
-  }
+  return shifted_sentences_;
 }

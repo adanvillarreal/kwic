@@ -31,7 +31,9 @@ void inputReader::readSentences(){
     if (type_of_read == 1) {
         cout << "Escriba sus oraciones use exit para parar: \n";
         getline(cin, sentence);
+        int counter = 0;
         while(sentence != "exit"){
+            cout << counter << ": ";
             list_of_strings_.push_back(sentence);
             getline(cin, sentence);
 
@@ -52,20 +54,8 @@ void inputReader::readSentences(){
             }
         }
         else {
-            cout << "no esta abierto, a diferencia de adan" << endl;
+            cout << "No se pudo abrir." << endl;
         }
-
-        /*
-        myfile.open(nameOfFile);
-        cout << nameOfFile + "\n";
-         /*
-        while(getline(cin, line) && line != EOF){
-            cout << line + "\n";
-            list_of_strings_.push_back(line);
-
-        }
-          */
-
         myfile.close();
     }
 
