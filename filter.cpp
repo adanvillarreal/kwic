@@ -15,10 +15,22 @@ Filter::Filter(){
 
 void Filter::filterIndexes(list<string> &container, list<int> &indexes) {
     indexes.sort();
-    for(int index : indexes) {
-        auto it = container.begin();
-        advance(it, index);
-        container.erase(it);
+    int c = 0;
+    auto it = container.begin();
+    while(it != container.end()) {
+      if(find(indexes.begin(), indexes.end(), c) != indexes.end()) {
+        *it = "";
+      }
+        it++;
+        c++;
+    }
+    it = container.begin();
+    while(it != container.end()) {
+      if(*it == "") {
+        it = container.erase(it);
+      } else {
+        it++;
+      }
     }
 }
 
@@ -28,9 +40,6 @@ void Filter::filterWords(list<string> &sentences, list<string> &stop_words) {
     istringstream ss(sentence);
     list<string> words;
     string word;
-    for(string w : stop_words) {
-      cout << "W " << w << "aaa\n";
-    }
     while(ss >> word) {
       auto it = std::find(stop_words.begin(), stop_words.end(), word);
       if( it == stop_words.end()) {
@@ -41,7 +50,6 @@ void Filter::filterWords(list<string> &sentences, list<string> &stop_words) {
 
     stringstream oss;
     copy(words.begin(), words.end(), ostream_iterator<string>(oss, " "));
-    cout << "123 " << ss.str() << '\n';
     sentence = oss.str();
   }
 }

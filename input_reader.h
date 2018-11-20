@@ -14,18 +14,27 @@
 
 using namespace std;
 
-class inputReader {
+class InputReader {
 private:
     list<string> list_of_strings_;
+    list<int> erased_lines_;
+    list<string> stop_words_;
 
 
 public:
     list<string> getListOfStrings();
 
+    list<string> getStopWords();
+
+    list<int> getErasedLines();
+
     void readSentences();
 
     void clearBuffer();
 
+    void stopWords();
+
+    void eraseLines();
 
 
 };
